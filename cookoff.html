@@ -62,20 +62,16 @@
             }
 
             #titlesection {
-                background-image:linear-gradient(45deg,#fd9d3c, #fe3b00, #fd9d3c, #fe3b00, #fd9d3c); /* Replace with the path to your image */
+                background-image:linear-gradient(45deg,#fd9d3c, #fe3b00, #fd9d3c, #fe3b00); /* Replace with the path to your image */
                 background-clip: text;
-                background-size: 300%;
+                background-size: 400%;
                 -webkit-background-clip: text; 
                 color:transparent;
-                animation: animatedText 3s linear infinite;
+                animation: animatedText 1s linear infinite reverse;
             }
             @keyframes animatedText {
-                0% {
-                    background-position: 0% 0;
-                }
-                100% {
-                    background-position: 100% 100%;
-                }
+                0% {background-position: 0% 0;}
+                100% {background-position: 100% 100%;}
             }
         </style>
     </head>
