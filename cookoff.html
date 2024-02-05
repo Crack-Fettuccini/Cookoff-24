@@ -15,7 +15,7 @@
             
             .line {
                 position: absolute;
-                height: 24rem;
+                height: 29rem;
                 width: 6px;
                 background-color: #fff; /* Change the color as needed */
                 left: calc(50% - 3px);
@@ -52,6 +52,9 @@
             letter-spacing: -.02em;
             -webkit-font-smoothing: antialiased;
             }
+            h5 {
+            margin-bottom: 3%;
+            }
             section{
                 min-height: 500px;
                 height:100vh;
@@ -60,14 +63,28 @@
                 align-items: center;
                 justify-content: center;
             }
+            #about {
+                opacity: 0;
+                transform: translateY(50px); /* Initial translateY for floating effect */
+                transition: opacity 1s ease-in-out, transform 1s ease-in-out; /* CSS transitions for smooth fading and floating */
+            }
 
+            /* Keyframes for floating animation */
+            @keyframes floatIn {
+                0% {
+                    transform: translateY(50px);
+                }
+                100% {
+                    transform: translateY(0px);
+                }
+            }
             #titlesection {
                 background-image:linear-gradient(45deg,#fd9d3c, #fe3b00, #fd9d3c, #fe3b00); /* Replace with the path to your image */
                 background-clip: text;
                 background-size: 400%;
                 -webkit-background-clip: text; 
                 color:transparent;
-                animation: animatedText 1s linear infinite reverse;
+                animation: animatedText 2s linear infinite reverse;
             }
             @keyframes animatedText {
                 0% {background-position: 0% 0;}
@@ -127,6 +144,25 @@
             <h2>Contact Us</h2>
         </section>
         <script src="" async defer></script>
+        <script>
+            function handleIntersection(entries, observer) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        // If section is in view, set opacity to 1 and apply floating animation
+                        entry.target.style.opacity = 1;
+                        entry.target.style.transform = 'translateY(0)';
+                        entry.target.style.animation = 'floatIn 2s ease-in-out';
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }
+    
+            const observer = new IntersectionObserver(handleIntersection, { threshold: 0.5 });
+    
+            const aboutSection = document.getElementById('about');
+    
+            observer.observe(aboutSection);
+        </script>
     </body>
 </html>
 
