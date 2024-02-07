@@ -4,166 +4,448 @@
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
 <!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
 <html>
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Cookoff '24</title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="">
-        <style>
-            
-            .line {
-                position: absolute;
-                height: 29rem;
-                width: 6px;
-                background-color: #fff; /* Change the color as needed */
-                left: calc(50% - 3px);
-                z-index: -1;
-            }
-            @import url('https://fonts.googleapis.com/css?family=Muli&display=swap');
-            @import url('https://fonts.googleapis.com/css?family=Quicksand&display=swap');
-            @import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
-            body {
-            font-family: 'Muli', sans-serif;
-            color: rgba(0, 0, 0, 0.8);
-            font-weight: 400;
-            line-height: 1.58;
-            letter-spacing: -.003em;
-            font-size: 20px;
-            padding: 70px;
-            }
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Cookoff '24</title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <link rel="stylesheet" href="" />
+    <style>
+      .line {
+        position: absolute;
+        height: 29rem;
+        width: 6px;
+        background-color: #fff; /* Change the color as needed */
+        left: calc(50% - 3px);
+        z-index: -1;
+      }
+      @import url("https://fonts.googleapis.com/css?family=Muli&display=swap");
+      @import url("https://fonts.googleapis.com/css?family=Quicksand&display=swap");
+      @import url("https://fonts.googleapis.com/css2?family=Anton&display=swap");
+      body {
+        font-family: "Muli", sans-serif;
+        color: rgba(0, 0, 0, 0.8);
+        font-weight: 400;
+        line-height: 1.58;
+        letter-spacing: -0.003em;
+        font-size: 20px;
+        padding: 70px;
+      }
 
-            h1 {
-            font-family: 'Anton', sans-serif;
-            font-weight: 700;
-            font-style: normal;
-            font-size: 8rem;
-            line-height: 1.15;
-            letter-spacing: -.02em;
-            -webkit-font-smoothing: antialiased;
-            }
-            h2 {
-            font-family: 'Anton', sans-serif;
-            font-weight: 600;
-            font-style: normal;
-            font-size: 3rem;
-            line-height: 1.15;
-            letter-spacing: -.02em;
-            -webkit-font-smoothing: antialiased;
-            }
-            h5 {
-            margin-bottom: 3%;
-            }
-            section{
-                min-height: 500px;
-                height:100vh;
-                width:100vw;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-            }
-            #about {
-                opacity: 0;
-                transform: translateY(50px); /* Initial translateY for floating effect */
-                transition: opacity 1s ease-in-out, transform 1s ease-in-out; /* CSS transitions for smooth fading and floating */
-            }
+      h1 {
+        font-family: "Anton", sans-serif;
+        font-weight: 700;
+        font-style: normal;
+        font-size: 8rem;
+        line-height: 1.15;
+        letter-spacing: -0.02em;
+        -webkit-font-smoothing: antialiased;
+      }
+      h2 {
+        font-family: "Anton", sans-serif;
+        font-weight: 600;
+        font-style: normal;
+        font-size: 3rem;
+        line-height: 1.15;
+        letter-spacing: -0.02em;
+        -webkit-font-smoothing: antialiased;
+      }
+      h5 {
+        margin-bottom: 3%;
+      }
+      section {
+        min-height: 500px;
+        height: 100vh;
+        width: 100vw;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      #about {
+        opacity: 0;
+        transform: translateY(
+          50px
+        ); /* Initial translateY for floating effect */
+        transition: opacity 1s ease-in-out, transform 1s ease-in-out; /* CSS transitions for smooth fading and floating */
+      }
 
-            /* Keyframes for floating animation */
-            @keyframes floatIn {
-                0% {
-                    transform: translateY(50px);
-                }
-                100% {
-                    transform: translateY(0px);
-                }
+      /* Keyframes for floating animation */
+      @keyframes floatIn {
+        0% {
+          transform: translateY(50px);
+        }
+        100% {
+          transform: translateY(0px);
+        }
+      }
+      #titlesection {
+        background-image: linear-gradient(
+          45deg,
+          #fd9d3c,
+          #fe3b00,
+          #fd9d3c,
+          #fe3b00
+        ); /* Replace with the path to your image */
+        background-clip: text;
+        background-size: 400%;
+        -webkit-background-clip: text;
+        color: transparent;
+        animation: animatedText 2s linear infinite reverse;
+      }
+      @keyframes animatedText {
+        0% {
+          background-position: 0% 0;
+        }
+        100% {
+          background-position: 100% 100%;
+        }
+      }
+
+      /* rohan */
+      #faq {
+        display: flex;
+        flex-direction: column;
+      }
+      .accordion {
+        margin: 0 360px;
+        .accordion-item {
+          border-bottom: 1px solid lightgray;
+          button[aria-expanded="true"] {
+            border-bottom: 1px solid #fd9d3c;
+          }
+        }
+        button {
+          position: relative;
+          display: block;
+          text-align: left;
+          width: 100%;
+
+          padding: 1em 0;
+          color: white;
+          font-size: 1.15rem;
+          font-weight: 400;
+          border: none;
+          background: none;
+          outline: none;
+          &:hover,
+          &:focus {
+            cursor: pointer;
+            color: #fd9d3c;
+            &::after {
+              cursor: pointer;
+              color: #fd9d3c;
+              border: 1px solid #fd9d3c;
             }
-            #titlesection {
-                background-image:linear-gradient(45deg,#fd9d3c, #fe3b00, #fd9d3c, #fe3b00); /* Replace with the path to your image */
-                background-clip: text;
-                background-size: 400%;
-                -webkit-background-clip: text; 
-                color:transparent;
-                animation: animatedText 2s linear infinite reverse;
+          }
+          .accordion-title {
+            padding: 1em 1.5em 1em 0;
+          }
+          .icon {
+            display: inline-block;
+            position: absolute;
+            top: 18px;
+            right: 0;
+            width: 22px;
+            height: 22px;
+            border: 1px solid;
+            border-radius: 22px;
+            &::before {
+              display: block;
+              position: absolute;
+              content: "";
+              top: 9px;
+              left: 5px;
+              width: 10px;
+              height: 2px;
+              background: currentColor;
             }
-            @keyframes animatedText {
-                0% {background-position: 0% 0;}
-                100% {background-position: 100% 100%;}
+            &::after {
+              display: block;
+              position: absolute;
+              content: "";
+              top: 5px;
+              left: 9px;
+              width: 2px;
+              height: 10px;
+              background: currentColor;
             }
-        </style>
-    </head>
-    <body style="margin:0;padding:0; color:white; background-color: #000;">
-        <!--[if lt IE 7]>
-            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
-        <![endif]-->
-        <section id="titlesection">
-            <h1 class="text-with-image">Cookoff '24</h1>
-        </section>
-
-        <section id="about" style="max-width:600px">
-            <div>
-                <h2>About  the event</h2>
-                <p>Welcome to Cookoff, where your coding journey takes center stage! This 24-hour hackathon organised by us at CodeChef Vit Chennai, is your chance to boost skills, collaborate with batchmates, and showcase your coding prowess.</p>
-            </div>
-        </section>
-
-        <section id="timeline">
-            <div style="width:100%; text-align:center;">
-                <h2>Timeline</h2>
-                <div class="timeline-container" style="width:100%; height:auto; text-align: center;">
-                    <div class="line"></div>
-                    <h5 style="margin-right:calc(50% - 10px); text-align:right;">Event Kickoff&#11044;</h5>
-                    <h5 style="margin-left:calc(50% - 10px); text-align:left;">&#11044;Phase 1 of hackathon</h5>
-                    <h5 style="margin-right:calc(50% - 10px); text-align:right;">Talk by special guest&#11044;</h5>
-                    <h5 style="margin-left:calc(50% - 10px); text-align:left;">&#11044;break for lunch and networking</h5>
-                    <h5 style="margin-right:calc(50% - 10px); text-align:right;">Talk about various topics&#11044;</h5>
-                    <h5 style="margin-left:calc(50% - 10px); text-align:left;">&#11044;Phase 2 of hackathon</h5>
-                    <h5 style="margin-right:calc(50% - 10px); text-align:right;">Short tech talk&#11044;</h5>
-                    <h5 style="margin-left:calc(50% - 10px); text-align:left;">&#11044;Closing ceremony</h5>
-                </div>
-            </div>
-        </section>
-
-        <section id="prizes">
-            <div style="width: 100%;">
-                <div  style="width: 50%; text-align: center;">
-                    <h2>Prizes</h2>
-                </div>
-            </div>
-        </section>
-
-        <section id="sponsors">
-            <h2>Sponsors</h2>
-        </section>
-
-        <section id="faq">
-            <h2>FAQs</h2>
-        </section>
-
-        <section id="contactus">
-            <h2>Contact Us</h2>
-        </section>
-        <script src="" async defer></script>
-        <script>
-            function handleIntersection(entries, observer) {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        // If section is in view, set opacity to 1 and apply floating animation
-                        entry.target.style.opacity = 1;
-                        entry.target.style.transform = 'translateY(0)';
-                        entry.target.style.animation = 'floatIn 2s ease-in-out';
-                        observer.unobserve(entry.target);
-                    }
-                });
+          }
+        }
+        button[aria-expanded="true"] {
+          color: #fd9d3c;
+          .icon {
+            &::after {
+              width: 0;
             }
-    
-            const observer = new IntersectionObserver(handleIntersection, { threshold: 0.5 });
-    
-            const aboutSection = document.getElementById('about');
-    
-            observer.observe(aboutSection);
-        </script>
-    </body>
+          }
+          + .accordion-content {
+            opacity: 1;
+            max-height: 9em;
+            transition: all 200ms linear;
+            will-change: opacity, max-height;
+          }
+        }
+        .accordion-content {
+          opacity: 0;
+          max-height: 0;
+          overflow: hidden;
+          transition: opacity 200ms linear, max-height 200ms linear;
+          will-change: opacity, max-height;
+          p {
+            font-size: 1rem;
+            font-weight: 300;
+            margin: 2em 0;
+          }
+        }
+      }
+
+      #contactus {
+        display: flex;
+        flex-direction: column;
+      }
+      .contact-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 20px;
+      }
+
+      .social-links {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 10px;
+      }
+
+      .social-links a {
+        margin: 0 30px;
+        text-decoration: none;
+        color: white;
+        font-size: 50px;
+        transition: color 0.3s ease-in-out;
+      }
+
+      .social-links a:hover {
+        color: #fd9d3c;
+      }
+
+      .contact-details {
+        display: flex;
+        /* flex-direction: column; */
+        align-items: center;
+      }
+
+      .email,
+      .address {
+        top: 0;
+        margin: 0 35px;
+        width: 350px;
+        color: white;
+      }
+    </style>
+  </head>
+  <body style="margin: 0; padding: 0; color: white; background-color: #000">
+    <!--[if lt IE 7]>
+      <p class="browsehappy">
+        You are using an <strong>outdated</strong> browser. Please
+        <a href="#">upgrade your browser</a> to improve your experience.
+      </p>
+    <![endif]-->
+    <section id="titlesection">
+      <h1 class="text-with-image">Cookoff '24</h1>
+    </section>
+
+    <section id="about" style="max-width: 600px">
+      <div>
+        <h2>About the event</h2>
+        <p>
+          Welcome to Cookoff, where your coding journey takes center stage! This
+          24-hour hackathon organised by us at CodeChef Vit Chennai, is your
+          chance to boost skills, collaborate with batchmates, and showcase your
+          coding prowess.
+        </p>
+      </div>
+    </section>
+
+    <section id="timeline">
+      <div style="width: 100%; text-align: center">
+        <h2>Timeline</h2>
+        <div
+          class="timeline-container"
+          style="width: 100%; height: auto; text-align: center"
+        >
+          <div class="line"></div>
+          <h5 style="margin-right: calc(50% - 10px); text-align: right">
+            Event Kickoff&#11044;
+          </h5>
+          <h5 style="margin-left: calc(50% - 10px); text-align: left">
+            &#11044;Phase 1 of hackathon
+          </h5>
+          <h5 style="margin-right: calc(50% - 10px); text-align: right">
+            Talk by special guest&#11044;
+          </h5>
+          <h5 style="margin-left: calc(50% - 10px); text-align: left">
+            &#11044;break for lunch and networking
+          </h5>
+          <h5 style="margin-right: calc(50% - 10px); text-align: right">
+            Talk about various topics&#11044;
+          </h5>
+          <h5 style="margin-left: calc(50% - 10px); text-align: left">
+            &#11044;Phase 2 of hackathon
+          </h5>
+          <h5 style="margin-right: calc(50% - 10px); text-align: right">
+            Short tech talk&#11044;
+          </h5>
+          <h5 style="margin-left: calc(50% - 10px); text-align: left">
+            &#11044;Closing ceremony
+          </h5>
+        </div>
+      </div>
+    </section>
+
+    <section id="prizes">
+      <div style="width: 100%">
+        <div style="width: 50%; text-align: center">
+          <h2>Prizes</h2>
+        </div>
+      </div>
+    </section>
+
+    <section id="sponsors">
+      <h2>Sponsors</h2>
+    </section>
+
+    <section id="faq">
+      <h2>FAQs</h2>
+
+      <div class="accordion">
+        <div class="accordion-item">
+          <button
+            id="accordion-button-1"
+            aria-expanded="false"
+            class="accordion-title"
+          >
+            Can I form a coding round team with students from different academic
+            branches?
+          </button>
+          <div class="accordion-content">
+            <p>
+              No, teams are specifically formed with three members from the same
+              batch to maintain fairness and equity in the competition. Each
+              team represents a particular year (1st, 2nd, or 3rd) within the
+              same academic branch. This ensures that all teams face coding
+              challenges tailored to their shared academic experiences and
+              knowledge levels.
+            </p>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <button
+            id="accordion-button-2"
+            aria-expanded="false"
+            class="accordion-title"
+          >
+            Can I form a coding round team with students from different academic
+            years?
+          </button>
+          <div class="accordion-content">
+            <p>
+              No, the teams are structured to consist of three members from the
+              same academic year—either 1st, 2nd, or 3rd. This ensures that the
+              coding questions are tailored to the curriculum and knowledge
+              level of each specific batch. Mixing students from different years
+              would potentially create an imbalance in the competition, and
+              thus, teams must be composed of members from the same academic
+              year.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contactus" style="text-align: center">
+      <div class="c_head">
+        <h2>Contact Us</h2>
+      </div>
+
+      <div class="contact-container">
+        <div class="social-links">
+          <a href="https://github.com/your-github" target="_blank"
+            ><i class="fab fa-github"></i
+          ></a>
+          <a href="https://www.facebook.com/codechef.vitc/" target="_blank"
+            ><i class="fab fa-facebook"></i
+          ></a>
+          <a
+            href="https://www.instagram.com/cookoff._.2024?igsh=c2t2cWFhZWtwZ3kz"
+            target="_blank"
+            ><i class="fab fa-instagram"></i></a>
+          <a href="https://www.linkedin.com/company/codechef-vitc/"><i class="fab fa-linkedin"></i></a>
+          <a href="https://twitter.com/CookOffVITC" target="_blank"
+            ><i class="fab fa-twitter"></i
+          ></a>
+        </div>
+
+        <div class="contact-details">
+          <div class="email">
+            <h2>Contact</h2>
+            <p>Siddharth: +91 97178 61103</p>
+            <p>Varun: +91 73586 45059</p>
+            <p>Email: cookoff2024@gmail.com</p>
+          </div>
+          <div class="address">
+            <h2>Address</h2>
+            <p>
+              Vellore Institute of Technology, Chennai Vandalur – Kelambakkam
+              Road Chennai, Tamil Nadu <br />
+              600127
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <script src="" async defer></script>
+    <script>
+      function handleIntersection(entries, observer) {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            // If section is in view, set opacity to 1 and apply floating animation
+            entry.target.style.opacity = 1;
+            entry.target.style.transform = "translateY(0)";
+            entry.target.style.animation = "floatIn 2s ease-in-out";
+            observer.unobserve(entry.target);
+          }
+        });
+      }
+
+      const observer = new IntersectionObserver(handleIntersection, {
+        threshold: 0.5,
+      });
+
+      const aboutSection = document.getElementById("about");
+
+      observer.observe(aboutSection);
+      // rohan
+      const items = document.querySelectorAll(".accordion button");
+
+      function toggleAccordion() {
+        const itemToggle = this.getAttribute("aria-expanded");
+
+        for (i = 0; i < items.length; i++) {
+          items[i].setAttribute("aria-expanded", "false");
+        }
+
+        if (itemToggle == "false") {
+          this.setAttribute("aria-expanded", "true");
+        }
+      }
+
+      items.forEach((item) => item.addEventListener("click", toggleAccordion));
+    </script>
+  </body>
 </html>
-
-
