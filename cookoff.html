@@ -105,147 +105,202 @@
           background-position: 100% 100%;
         }
       }
-
-      /* rohan */
-      #faq {
-        display: flex;
-        flex-direction: column;
+      .carousel-container {
+        width: 100%;
+        overflow: hidden;
       }
-      .accordion {
-        margin: 0 360px;
-        .accordion-item {
-          border-bottom: 1px solid lightgray;
-          button[aria-expanded="true"] {
-            border-bottom: 1px solid #fd9d3c;
-          }
-        }
-        button {
-          position: relative;
-          display: block;
-          text-align: left;
-          width: 100%;
 
-          padding: 1em 0;
-          color: white;
-          font-size: 1.15rem;
-          font-weight: 400;
-          border: none;
-          background: none;
-          outline: none;
-          &:hover,
-          &:focus {
-            cursor: pointer;
-            color: #fd9d3c;
-            &::after {
-              cursor: pointer;
-              color: #fd9d3c;
-              border: 1px solid #fd9d3c;
-            }
-          }
-          .accordion-title {
-            padding: 1em 1.5em 1em 0;
-          }
-          .icon {
-            display: inline-block;
-            position: absolute;
-            top: 18px;
-            right: 0;
-            width: 22px;
-            height: 22px;
-            border: 1px solid;
-            border-radius: 22px;
-            &::before {
-              display: block;
-              position: absolute;
-              content: "";
-              top: 9px;
-              left: 5px;
-              width: 10px;
-              height: 2px;
-              background: currentColor;
-            }
-            &::after {
-              display: block;
-              position: absolute;
-              content: "";
-              top: 5px;
-              left: 9px;
-              width: 2px;
-              height: 10px;
-              background: currentColor;
-            }
-          }
+      .carousel.Right {
+        display: flex;
+        animation: scrollR 10s linear infinite;
+      }
+      .carousel.Left {
+        display: flex;
+        animation: scrollL 10s linear infinite;
+      }
+      .card {
+        flex: 0 0 auto;
+        border-radius: 2vh;
+        background-color: #fff;
+        width: 23vw;
+        height:14vw;
+        margin: 2vw 1vw;
+      }
+      .card img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain; /* Ensures the image covers the entire card */
+      }
+      @keyframes scrollR {
+        from {
+          transform: translateX(0%);
         }
-        button[aria-expanded="true"] {
-          color: #fd9d3c;
-          .icon {
-            &::after {
-              width: 0;
-            }
-          }
-          + .accordion-content {
-            opacity: 1;
-            max-height: 9em;
-            transition: all 200ms linear;
-            will-change: opacity, max-height;
-          }
+        to {
+          transform: translateX(-50vw);
         }
-        .accordion-content {
-          opacity: 0;
-          max-height: 0;
-          overflow: hidden;
-          transition: opacity 200ms linear, max-height 200ms linear;
-          will-change: opacity, max-height;
-          p {
-            font-size: 1rem;
-            font-weight: 300;
-            margin: 2em 0;
-          }
+      }
+      @keyframes scrollL {
+        from {
+          transform: translateX(-50vw);
+        }
+        to {
+          transform: translateX(0);
         }
       }
 
-      #contactus {
-        display: flex;
-        flex-direction: column;
-      }
-      .contact-container {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        margin-top: 20px;
-      }
+    /* rohan */
+    #faq {
+      display: -webkit-box; /* For Safari 6.1+ */
+      display: -ms-flexbox; /* For IE 10 */
+      display: flex;
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+          -ms-flex-direction: column;
+              flex-direction: column;
+    }
+    .accordion {
+      margin: 0 360px;
+    }
+    .accordion-item {
+      border-bottom: 1px solid lightgray;
+    }
+    .accordion-item button[aria-expanded="true"] {
+      border-bottom: 1px solid #fd9d3c;
+    }
+    button {
+      position: relative;
+      display: block;
+      text-align: left;
+      width: 100%;
+      padding: 1em 0;
+      color: white;
+      font-size: 1.15rem;
+      font-weight: 400;
+      border: none;
+      background: none;
+      outline: none;
+    }
+    button:hover,
+    button:focus {
+      cursor: pointer;
+      color: #fd9d3c;
+    }
+    button:hover::after,
+    button:focus::after {
+      cursor: pointer;
+      color: #fd9d3c;
+      border: 1px solid #fd9d3c;
+    }
+    .accordion-title {
+      padding: 1em 1.5em 1em 0;
+    }
+    .icon {
+      display: inline-block;
+      position: absolute;
+      top: 18px;
+      right: 0;
+      width: 22px;
+      height: 22px;
+      border: 1px solid;
+      border-radius: 22px;
+    }
+    .icon::before {
+      display: block;
+      position: absolute;
+      content: "";
+      top: 9px;
+      left: 5px;
+      width: 10px;
+      height: 2px;
+      background: currentColor;
+    }
+    .icon::after {
+      display: block;
+      position: absolute;
+      content: "";
+      top: 5px;
+      left: 9px;
+      width: 2px;
+      height: 10px;
+      background: currentColor;
+    }
+    button[aria-expanded="true"] {
+      color: #fd9d3c;
+    }
+    button[aria-expanded="true"] .icon::after {
+      width: 0;
+    }
+    .accordion-content {
+      opacity: 0;
+      max-height: 0;
+      overflow: hidden;
+      transition: opacity 200ms linear, max-height 200ms linear;
+    }
+    button[aria-expanded="true"] + .accordion-content {
+      opacity: 1;
+      max-height: 9em;
+      transition: all 200ms linear;
+    }
+    .accordion-content p {
+      font-size: 1rem;
+      font-weight: 300;
+      margin: 2em 0;
+    }
 
-      .social-links {
-        display: flex;
-        justify-content: center;
-        margin-bottom: 10px;
-      }
+    #contactus {
+      display: -webkit-box; /* For Safari 6.1+ */
+      display: -ms-flexbox; /* For IE 10 */
+      display: flex;
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+          -ms-flex-direction: column;
+              flex-direction: column;
+    }
+    .contact-container {
+      display: -webkit-box; /* For Safari 6.1+ */
+      display: -ms-flexbox; /* For IE 10 */
+      display: flex;
+      -ms-flex-pack: center;
+          justify-content: center;
+      margin-top: 20px;
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+          -ms-flex-direction: column;
+              flex-direction: column;
+    }
+    .social-links {
+      display: -webkit-box; /* For Safari 6.1+ */
+      display: -ms-flexbox; /* For IE 10 */
+      display: flex;
+      -ms-flex-pack: center;
+          justify-content: center;
+      margin-bottom: 10px;
+    }
+    .social-links a {
+      margin: 0 30px;
+      text-decoration: none;
+      color: white;
+      font-size: 50px;
+      transition: color 0.3s ease-in-out;
+    }
+    .social-links a:hover {
+      color: #fd9d3c;
+    }
+    .contact-details {
+      display: -webkit-box; /* For Safari 6.1+ */
+      display: -ms-flexbox; /* For IE 10 */
+      display: flex;
+      -ms-flex-pack: center;
+          justify-content: center;
+    }
+    .email,
+    .address {
+      top: 0;
+      margin: 0 35px;
+      width: 350px;
+      color: white;
+    }
 
-      .social-links a {
-        margin: 0 30px;
-        text-decoration: none;
-        color: white;
-        font-size: 50px;
-        transition: color 0.3s ease-in-out;
-      }
-
-      .social-links a:hover {
-        color: #fd9d3c;
-      }
-
-      .contact-details {
-        display: flex;
-        /* flex-direction: column; */
-        align-items: center;
-      }
-
-      .email,
-      .address {
-        top: 0;
-        margin: 0 35px;
-        width: 350px;
-        color: white;
-      }
     </style>
   </head>
   <body style="margin: 0; padding: 0; color: white; background-color: #000">
@@ -308,15 +363,118 @@
     </section>
 
     <section id="prizes">
-      <div style="width: 100%">
+      <div style="width: 100%" style="display: inline;">
+        <div style="width: 50%; text-align: center">
+          <h2>Prizes</h2>
+        </div>
         <div style="width: 50%; text-align: center">
           <h2>Prizes</h2>
         </div>
       </div>
     </section>
 
-    <section id="sponsors">
-      <h2>Sponsors</h2>
+    <section id="sponsors" style="display:inline">
+        <h2 style="width:100%; text-align: center;">Sponsors</h2>
+        <br>
+      <div class="carousel-container">
+        <div class="carousel Right">
+          <div class="card">
+            <img src="codechefXvitcc.png" alt="Card 1">
+          </div>
+          <div class="card">
+            <img src="codechefXvitcc.png" alt="Card 2">
+          </div>
+          <div class="card">
+            <img src="codechefXvitcc.png" alt="Card 3">
+          </div>
+          <div class="card">
+            <img src="codechefXvitcc.png" alt="Card 1">
+          </div>
+          <div class="card">
+            <img src="codechefXvitcc.png" alt="Card 2">
+          </div>
+          <div class="card">
+            <img src="codechefXvitcc.png" alt="Card 3">
+          </div>
+          <div class="card">
+            <img src="codechefXvitcc.png" alt="Card 1">
+          </div>
+          <div class="card">
+            <img src="codechefXvitcc.png" alt="Card 1">
+          </div>
+          <div class="card">
+            <img src="codechefXvitcc.png" alt="Card 2">
+          </div>
+          <div class="card">
+            <img src="codechefXvitcc.png" alt="Card 3">
+          </div>
+          <div class="card">
+            <img src="codechefXvitcc.png" alt="Card 1">
+          </div>
+          <div class="card">
+            <img src="codechefXvitcc.png" alt="Card 2">
+          </div>
+          <div class="card">
+            <img src="codechefXvitcc.png" alt="Card 3">
+          </div>
+          <div class="card">
+            <img src="codechefXvitcc.png" alt="Card 1">
+          </div>
+          <div class="card">
+            <img src="codechefXvitcc.png" alt="Card 2">
+          </div>
+        </div>
+      </div>
+      <div class="carousel-container">
+        <div class="carousel Left">
+          <div class="card">
+            <img src="codechefXvitcc.png" alt="Card 1">
+          </div>
+          <div class="card">
+            <img src="codechefXvitcc.png" alt="Card 2">
+          </div>
+          <div class="card">
+            <img src="codechefXvitcc.png" alt="Card 3">
+          </div>
+          <div class="card">
+            <img src="codechefXvitcc.png" alt="Card 1">
+          </div>
+          <div class="card">
+            <img src="codechefXvitcc.png" alt="Card 2">
+          </div>
+          <div class="card">
+            <img src="codechefXvitcc.png" alt="Card 3">
+          </div>
+          <div class="card">
+            <img src="codechefXvitcc.png" alt="Card 1">
+          </div>
+          <div class="card">
+            <img src="codechefXvitcc.png" alt="Card 2">
+          </div>
+          <div class="card">
+            <img src="codechefXvitcc.png" alt="Card 1">
+          </div>
+          <div class="card">
+            <img src="codechefXvitcc.png" alt="Card 2">
+          </div>
+          <div class="card">
+            <img src="codechefXvitcc.png" alt="Card 3">
+          </div>
+          <div class="card">
+            <img src="codechefXvitcc.png" alt="Card 1">
+          </div>
+          <div class="card">
+            <img src="codechefXvitcc.png" alt="Card 2">
+          </div>
+          <div class="card">
+            <img src="codechefXvitcc.png" alt="Card 3">
+          </div>
+          <div class="card">
+            <img src="codechefXvitcc.png" alt="Card 1">
+          </div>
+          <div class="card">
+        </div>
+      </div>     
     </section>
 
     <section id="faq">
@@ -367,7 +525,7 @@
       </div>
     </section>
 
-    <section id="contactus" style="text-align: center">
+    <section id="contactus">
       <div class="c_head">
         <h2>Contact Us</h2>
       </div>
@@ -411,6 +569,15 @@
 
     <script src="" async defer></script>
     <script>
+      document.querySelectorAll('.carousel-container').forEach(function(container) {
+        container.addEventListener('mouseenter', function() {
+          this.querySelector('.carousel').style.animationPlayState = 'paused';
+        });
+
+        container.addEventListener('mouseleave', function() {
+          this.querySelector('.carousel').style.animationPlayState = 'running';
+        });
+      });
       function handleIntersection(entries, observer) {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
