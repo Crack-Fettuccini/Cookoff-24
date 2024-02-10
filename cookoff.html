@@ -36,6 +36,13 @@
         font-size: 20px;
         padding: 70px;
       }
+      .image {
+        position: absolute;
+        width: 100px;
+        height: auto;
+        pointer-events: none;
+        z-index: -1;
+      }
 
       h1 {
         font-family: "Anton", sans-serif;
@@ -310,7 +317,7 @@
         <a href="#">upgrade your browser</a> to improve your experience.
       </p>
     <![endif]-->
-    <section id="titlesection">
+    <section id="titlesection"  style="backdrop-filter: blur(3px); -webkit-backdrop-filter: blur(3px);">
       <h1 class="text-with-image">Cookoff '24</h1>
     </section>
 
@@ -550,13 +557,13 @@
 
         <div class="contact-details">
           <div class="email">
-            <h2>Contact</h2>
+            <h3>Contact</h3>
             <p>Siddharth: +91 97178 61103</p>
             <p>Varun: +91 73586 45059</p>
             <p>Email: cookoff2024@gmail.com</p>
           </div>
           <div class="address">
-            <h2>Address</h2>
+            <h3>Address</h3>
             <p>
               Vellore Institute of Technology, Chennai Vandalur – Kelambakkam
               Road Chennai, Tamil Nadu <br />
@@ -613,6 +620,79 @@
       }
 
       items.forEach((item) => item.addEventListener("click", toggleAccordion));
+      document.addEventListener("DOMContentLoaded", function() {
+    var images = [
+        'trophypxl.png',
+        'hatp.png',
+        'hdphnpxl.png',
+        'micpxl.png'
+    ];
+
+    var body = document.querySelector("body");
+    var docWidth = document.documentElement.scrollWidth;
+    var docHeight = document.documentElement.scrollHeight;
+    var gridSize = 250; // Size of grid cells
+    var minDistance = 300; // Minimum distance between images
+    var grid = createGrid(docWidth, docHeight, gridSize);
+    var existingImagePositions = []; // Array to store positions of existing images
+
+    for (var i = 0; i < 50; i++) { // Adjust the loop to control the number of images
+        var randomIndex = Math.floor(Math.random() * images.length);
+        var image = new Image();
+        image.src = images[randomIndex];
+        image.classList.add("image");
+
+        // Set random rotation angle between 0 and 360 degrees
+        var rotation = Math.random() * 90 - 45;
+        image.style.transform = "rotate(" + rotation + "deg)";
+
+        // Find a grid cell that meets separation constraints
+        var cell = findGridCell(grid, existingImagePositions, minDistance);
+
+        // Set image position within the selected grid cell
+        var x = cell.x + (gridSize - image.width) / 2;
+        var y = cell.y + (gridSize - image.height) / 2;
+        image.style.left = x + "px";
+        image.style.top = y + "px";
+
+        body.appendChild(image);
+        existingImagePositions.push({ x: x, y: y });
+    }
+
+    // Function to create a grid
+    function createGrid(width, height, gridSize) {
+        var grid = [];
+        for (var x = 0; x < width; x += gridSize) {
+            grid.push([]);
+            for (var y = 0; y < height; y += gridSize) {
+                grid[x / gridSize].push({ x: x, y: y });
+            }
+        }
+        return grid;
+    }
+
+    // Function to find a grid cell that meets separation constraints
+    function findGridCell(grid, existingImagePositions, minDistance) {
+        while (true) {
+            var randomX = Math.floor(Math.random() * grid.length);
+            var randomY = Math.floor(Math.random() * grid[0].length);
+            var cell = grid[randomX][randomY];
+            var isSeparated = true;
+            for (var i = 0; i < existingImagePositions.length; i++) {
+                var dx = cell.x - existingImagePositions[i].x;
+                var dy = cell.y - existingImagePositions[i].y;
+                var distance = Math.sqrt(dx * dx + dy * dy);
+                if (distance < minDistance) {
+                    isSeparated = false;
+                    break;
+                }
+            }
+            if (isSeparated) {
+                return cell;
+            }
+        }
+    }
+});
     </script>
   </body>
 </html>
