@@ -10,9 +10,7 @@
     <title>Cookoff '24</title>
     <meta name="description" content="" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
     />
     <link rel="stylesheet" href="" />
     <style>
@@ -38,7 +36,7 @@
       }
       .image {
         position: absolute;
-        width: 100px;
+        width: min(15vw, 15vh);
         height: auto;
         pointer-events: none;
         z-index: -1;
@@ -67,8 +65,8 @@
       }
       section {
         min-height: 500px;
-        height: 100vh;
-        width: 100vw;
+        height: 150dvh;
+        width: 100dvw;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -93,7 +91,9 @@
       #titlesection {
         background-image: linear-gradient(
           45deg,
+          #fe3b00,
           #fd9d3c,
+          #fe3b00,
           #fe3b00,
           #fd9d3c,
           #fe3b00
@@ -127,11 +127,11 @@
       }
       .card {
         flex: 0 0 auto;
-        border-radius: 2vh;
+        border-radius: 2vw;
         background-color: #fff;
-        width: 23vw;
-        height:14vw;
-        margin: 2vw 1vw;
+        width: 23dvw;
+        height:14dvw;
+        margin: 2dvw 1dvw;
       }
       .card img {
         width: 100%;
@@ -143,12 +143,12 @@
           transform: translateX(0%);
         }
         to {
-          transform: translateX(-50vw);
+          transform: translateX(-50dvw);
         }
       }
       @keyframes scrollL {
         from {
-          transform: translateX(-50vw);
+          transform: translateX(-50dvw);
         }
         to {
           transform: translateX(0);
@@ -255,6 +255,7 @@
     }
 
     #contactus {
+      height: 80dvh;
       display: -webkit-box; /* For Safari 6.1+ */
       display: -ms-flexbox; /* For IE 10 */
       display: flex;
@@ -280,14 +281,14 @@
       display: -ms-flexbox; /* For IE 10 */
       display: flex;
       -ms-flex-pack: center;
-          justify-content: center;
+      justify-content: center;
       margin-bottom: 10px;
+      justify-content: space-between;
     }
     .social-links a {
-      margin: 0 30px;
       text-decoration: none;
       color: white;
-      font-size: 50px;
+      font-size: min(10vw, 50px);
       transition: color 0.3s ease-in-out;
     }
     .social-links a:hover {
@@ -298,7 +299,7 @@
       display: -ms-flexbox; /* For IE 10 */
       display: flex;
       -ms-flex-pack: center;
-          justify-content: center;
+      justify-content: center;
     }
     .email,
     .address {
@@ -539,36 +540,37 @@
 
       <div class="contact-container">
         <div class="social-links">
-          <a href="https://github.com/your-github" target="_blank"
-            ><i class="fab fa-github"></i
-          ></a>
-          <a href="https://www.facebook.com/codechef.vitc/" target="_blank"
-            ><i class="fab fa-facebook"></i
-          ></a>
-          <a
-            href="https://www.instagram.com/cookoff._.2024?igsh=c2t2cWFhZWtwZ3kz"
-            target="_blank"
-            ><i class="fab fa-instagram"></i></a>
-          <a href="https://www.linkedin.com/company/codechef-vitc/"><i class="fab fa-linkedin"></i></a>
-          <a href="https://twitter.com/CookOffVITC" target="_blank"
-            ><i class="fab fa-twitter"></i
-          ></a>
+          <a href="https://github.com/Codechef-VITC-Student-Chapter/" target="_blank">
+            <i class="fab fa-github"></i>
+          </a>
+          <a href="https://www.facebook.com/codechef.vitc/" target="_blank">
+            <i class="fab fa-facebook"></i>
+          </a>
+          <a href="https://www.instagram.com/cookoff._.2024?igsh=c2t2cWFhZWtwZ3kz" target="_blank">
+            <i class="fab fa-instagram"></i>
+          </a>
+          <a href="https://www.linkedin.com/company/codechef-vitc/">
+            <i class="fab fa-linkedin"></i>
+          </a>
+          <a href="https://twitter.com/CookOffVITC" target="_blank">
+            <i class="fab fa-twitter"></i>
+          </a>
         </div>
 
         <div class="contact-details">
-          <div class="email">
+          <div class="email" style="width:50%">
             <h3>Contact</h3>
-            <p>Siddharth: +91 97178 61103</p>
-            <p>Varun: +91 73586 45059</p>
-            <p>Email: cookoff2024@gmail.com</p>
+            <h5>Siddharth: +91 97178 61103</h5>
+            <h5>Varun: +91 73586 45059</h5>
+            <h5>Email: cookoff2024@gmail.com</h5>
           </div>
-          <div class="address">
+          <div class="address"  style="width:50%">
             <h3>Address</h3>
-            <p>
+            <h5>
               Vellore Institute of Technology, Chennai Vandalur – Kelambakkam
               Road Chennai, Tamil Nadu <br />
               600127
-            </p>
+            </h5>
           </div>
         </div>
       </div>
@@ -652,7 +654,10 @@
         // Set image position within the selected grid cell
         var x = cell.x + (gridSize - image.width) / 2;
         var y = cell.y + (gridSize - image.height) / 2;
-        image.style.left = x + "px";
+        
+        // Convert x position to vw
+        var xVw = (x / docWidth) * 100;
+        image.style.left = xVw + "vw";
         image.style.top = y + "px";
 
         body.appendChild(image);
@@ -693,6 +698,7 @@
         }
     }
 });
+
     </script>
   </body>
 </html>
